@@ -3,7 +3,9 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-    const [movies, setMovies] = useState([
+    const [movies, setMovies] = useState([]);
+
+    return (
         {
             id: 1, 
             title: "12 Angry Men",
@@ -54,5 +56,5 @@ export const MainView = () => {
             actors: ["Steve Carell", "Catherine Keener", "Paul Rudd", "Romany Malco", "Seth Rogen", "Elizabeth Banks", "Leslie Mann", "Jane Lynch", "Gerry Bednob", "Shelley Malil", "Kat Dennings", "Jordan Masterson", "Chelsea Smith", "Jonah Hill", "Erica Vittina Phillips", "Amy Kaling", "Mo Collins"],
             release: "2005",
         },
-    ])
-}
+    );
+;}
