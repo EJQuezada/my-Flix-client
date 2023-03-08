@@ -55,6 +55,6 @@ export const MainView = () => {
             director: "Judd Apatow",
             actors: ["Steve Carell", "Catherine Keener", "Paul Rudd", "Romany Malco", "Seth Rogen", "Elizabeth Banks", "Leslie Mann", "Jane Lynch", "Gerry Bednob", "Shelley Malil", "Kat Dennings", "Jordan Masterson", "Chelsea Smith", "Jonah Hill", "Erica Vittina Phillips", "Amy Kaling", "Mo Collins"],
             release: "2005",
-        },
+        }
     );
 };
