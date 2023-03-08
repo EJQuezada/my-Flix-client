@@ -57,4 +57,4 @@ export const MainView = () => {
             release: "2005",
         },
     );
-;}
+};
