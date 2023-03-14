@@ -57,7 +57,7 @@ export const MainView = () => {
     ]);
 
     useEffect(() => {
-        fetch("https://edgars-movie-api.onrender.com/search.json?q=21")
+        fetch("https://edgars-movie-api.onrender.com/movies")
             .then((response) => response.json())
             .then((data) => {
                 const moviesFromApi = data.docs.map((doc) => {
