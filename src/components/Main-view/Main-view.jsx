@@ -62,8 +62,8 @@ export const MainView = () => {
             .then((data) => {
                 const moviesFromApi = data.docs.map((doc) => {
                     return {
-                        id: doc.key,
-                        title: doc.title,
+                        id: doc._id,
+                        title: doc.Title,
                         image: `https://m.media-amazon.com/images/M/MV5BMjAyNTU5OTcxOV5BMl5BanBnXkFtZTcwMDEyNjM2MQ@@._V1_QL75_UY281_CR6,0,190,281_.jpg` , 
                     };
             });
