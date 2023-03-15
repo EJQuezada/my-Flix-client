@@ -15,12 +15,18 @@ export const LoginView = ({ onLoggedIn }) => {
         fetch("https://edgars-movie-api.onrender.com/account/login.json", {
             method: "POST",
             body: JSON.stringify(data)
-        }).then((response) => {
-            if (response.ok) {
-                onLoggedIn(username);
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Login response: ", data);
+                if (data.user) {
+                    onLoggedIn(data.user, data.token);
             } else {
                 alert("login failed");
             }
+        })
+        .catch((e) => {
+            alert("Something went wrong");
         });
     };
 
