@@ -3,6 +3,10 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+    const [user, setUser] = useState(storedUser? storedUser : null);
+    const [token, setToken] = useState(storedToken? storedToken: null);
     const [movies, setMovies] = useState([
     //    {
     //        id: 1, 
@@ -55,9 +59,14 @@ export const MainView = () => {
     //        release: "2005",
     //    }
     ]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
-        fetch("https://edgars-movie-api.onrender.com/movies")
+        if (!token) return;
+
+        fetch("https://edgars-movie-api.onrender.com/movies", {
+            headersL { Authorization: `Bearer ${token}` },
+        })
             .then((response) => response.json())
             .then((data) => {
                 const moviesFromApi = data.docs.map((doc) => {
@@ -70,7 +79,7 @@ export const MainView = () => {
 
             setMovies(moviesFromApi);
         });
-    }, []);
+    }, [token]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
 
