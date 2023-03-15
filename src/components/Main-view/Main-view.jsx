@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -59,13 +60,13 @@ export const MainView = () => {
     //        release: "2005",
     //    }
     ]);
-    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [selectedMovie, setSelectedMovie] = useState(storedUser? storedUser : null);
 
     useEffect(() => {
         if (!token) return;
 
         fetch("https://edgars-movie-api.onrender.com/movies", {
-            headersL { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
         })
             .then((response) => response.json())
             .then((data) => {
@@ -75,13 +76,11 @@ export const MainView = () => {
                         title: doc.Title,
                         image: `https://m.media-amazon.com/images/M/MV5BMjAyNTU5OTcxOV5BMl5BanBnXkFtZTcwMDEyNjM2MQ@@._V1_QL75_UY281_CR6,0,190,281_.jpg` , 
                     };
-            });
+                });
 
             setMovies(moviesFromApi);
         });
     }, [token]);
-
-    const [selectedMovie, setSelectedMovie] = useState(null);
 
     if (selectedMovie) {
         return (
@@ -93,6 +92,7 @@ export const MainView = () => {
     if (movies.length === 0) {
         return <div>The list is empty!</div>;
     }
+
     return (
         <div>
             <button
