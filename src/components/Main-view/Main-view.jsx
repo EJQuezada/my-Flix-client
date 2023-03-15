@@ -60,7 +60,7 @@ export const MainView = () => {
         fetch("https://edgars-movie-api.onrender.com/movies")
             .then((response) => response.json())
             .then((data) => {
-                const moviesFromApi = data.map((doc) => {
+                const moviesFromApi = data.docs.map((doc) => {
                     return {
                         id: doc._id,
                         title: doc.Title,
