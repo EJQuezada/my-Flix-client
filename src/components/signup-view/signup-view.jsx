@@ -74,7 +74,8 @@ export const SignupView = () => {
             <button type="submit">Submit</button>
         </form>
     );
-    <Link to="/login-view/login-view">
-        <button type="login">Already a member? Login here</button>
-    </Link>
 };
+
+<Link to="/login-view/login-view">
+    <button onClick={() =>props.onFormSwitch("Log-in")}>Already have an Account? Login here!</button>
+</Link>
