@@ -74,7 +74,7 @@ export const SignupView = () => {
             <button type="submit">Submit</button>
         </form>
     );
-    <Link to="/login-view">
+    <Link to="/login-view/login-view">
         <button type="login">Already a member? Login here</button>
     </Link>
 };
