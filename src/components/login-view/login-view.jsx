@@ -54,6 +54,6 @@ export const LoginView = ({ onLoggedIn }) => {
         </form>
     );
     <Link to="/signup-view">
-    <button type="signup">Not a member? Create an account here</button>
+        <button type="signup">Not a member? Create an account here</button>
     </Link>
 };
