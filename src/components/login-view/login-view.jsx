@@ -53,7 +53,7 @@ export const LoginView = ({ onLoggedIn }) => {
             <button type="submit">Submit</button>
         </form>
     );
-    <Link to="/signup-view">
+    <Link to="/signup-view/signup-view">
         <button type="signup">Not a member? Create an account here</button>
     </Link>
 };
