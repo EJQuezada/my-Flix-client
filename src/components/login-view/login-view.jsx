@@ -55,6 +55,3 @@ export const LoginView = ({ onLoggedIn }) => {
     );
 };
 
-<Link to="/signup-view/signup-view">
-    <button onClick={() =>props.onFormSwitch("Register")}>Don't have an Account? Register here!</button>
-</Link>

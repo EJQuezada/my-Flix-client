@@ -13,7 +13,7 @@ export const SignupView = () => {
             Username: username,
             Password: password,
             Email: email,
-            Birthday, birthday,
+            Birthday: birthday,
         };
 
         fetch("https://edgars-movie-api.onrender.com/signup", {
@@ -76,6 +76,3 @@ export const SignupView = () => {
     );
 };
 
-<Link to="/login-view/login-view">
-    <button onClick={() =>props.onFormSwitch("Log-in")}>Already have an Account? Login here!</button>
-</Link>
