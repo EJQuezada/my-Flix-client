@@ -12,7 +12,7 @@ export const LoginView = ({ onLoggedIn }) => {
             secret: password
         };
 
-        fetch("https://edgars-movie-api.onrender.com/login", {
+        fetch("https://edgars-movie-api.onrender.com/users", {
             method: "POST",
             body: JSON.stringify(data)
         })
