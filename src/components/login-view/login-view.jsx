@@ -8,13 +8,16 @@ export const LoginView = ({ onLoggedIn }) => {
         event.preventDefault();
 
         const data = {
-            access: username, 
-            secret: password
+            Username: username, 
+            Password: password,
         };
 
-        fetch("https://edgars-movie-api.onrender.com/users", {
+        fetch("https://edgars-movie-api.onrender.com/login", {
             method: "POST",
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
         })
             .then((response) => response.json())
             .then((data) => {
