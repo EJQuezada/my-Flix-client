@@ -87,11 +87,11 @@ export const MainView = () => {
     return (
         <Row>
             {!user ? (
-                <>
+                <Col md={5}>
                     <LoginView onLoggedIn={(user) => setUser(user)} />
                     or
                     <SignupView />
-                </>
+                </Col>
             ) :selectedMovie ? (
                 <MovieView
                     movie={selectedMovie}
