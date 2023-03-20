@@ -120,13 +120,14 @@ export const MainView = () => {
                 Logout
             </button>
             {movies.map((movie) => (
-                <MovieCard 
-                    key={movie.id} 
-                    movie={movie}
-                    onMovieClick={(newSelectedMovie) => {
-                        setSelectedMovie(newSelectedMovie);
-                    }}
-                />    
+                <Col key={movie.id} md={3}>
+                    <MovieCard
+                        movie={movie}
+                        onMovieClick={(newSelectedMovie) => {
+                            setSelectedMovie(newSelectedMovie);
+                        }}
+                    />    
+                </Col>           
             ))}
         </div>
     );
