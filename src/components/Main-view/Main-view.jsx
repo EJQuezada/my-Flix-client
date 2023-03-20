@@ -120,7 +120,7 @@ export const MainView = () => {
                 Logout
             </button>
             {movies.map((movie) => (
-                <Col key={movie.id} md={3}>
+                <Col className="mb-5" key={movie.id} md={3}>
                     <MovieCard
                         movie={movie}
                         onMovieClick={(newSelectedMovie) => {
