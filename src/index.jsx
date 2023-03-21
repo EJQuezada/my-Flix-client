@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrapp.min.css";
 import Container from "react-bootstrap/Container";
 import "./index.scss"
 
