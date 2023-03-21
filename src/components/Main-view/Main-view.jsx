@@ -88,7 +88,7 @@ export const MainView = () => {
         <Row>
             {!user ? (
                 <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView onLoggedIn={(user, token) => {setUser(user); setToken(token)}} />
                     or
                     <SignupView />
                 </Col>
