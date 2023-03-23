@@ -65,6 +65,7 @@ export const SignupView = () => {
                     value={email}
                     onChange={(e) =>setEmail(e.target.value)}
                     required
+                    placeholder="Enter your email address here"
                 />
             </Form.Group>
 
