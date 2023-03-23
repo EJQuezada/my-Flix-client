@@ -64,7 +64,7 @@ export const MainView = () => {
     //        release: "2005",
     //    }
     ]);
-    const [selectedMovie, setSelectedMovie] = useState(storedUser? storedUser : null);
+    //const [selectedMovie, setSelectedMovie] = useState(storedUser? storedUser : null);
 
     useEffect(() => {
         if (!token) return;
