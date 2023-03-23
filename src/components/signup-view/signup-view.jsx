@@ -55,6 +55,7 @@ export const SignupView = () => {
                     value={password}
                     onChange={(e) =>setPassword(e.target.value)}
                     required
+                    placeholder="Your password must be 5 or more characters long"
                 />
             </Form.Group>
 
