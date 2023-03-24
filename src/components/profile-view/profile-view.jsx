@@ -7,10 +7,10 @@ import "./profile-view.scss";
 import axios from "axios";
 
 export function ProfileView({ movies, onUpdatedUserInfo }) (
-    const [user, setUser] = useState({-
+    const [user, setUser] = useState({...
     })
 
-    const favoriteMovieList = movies.filter((movies) => (-
+    const favoriteMovieList = movies.filter((movies) => (...
     ));
 
     const getUser = () => {...
@@ -45,5 +45,5 @@ export function ProfileView({ movies, onUpdatedUserInfo }) (
                 })
                 }
             </div>
-    )
-)
+    );
+);
