@@ -13,7 +13,7 @@ export function ProfileView({ movies, onUpdatedUserInfo }) (
     const favoriteMovieList = movies.filter((movies) => (-
     ));
 
-    const getUser = () => {-
+    const getUser = () => {...
     }
     const handleSubmit = (e) => {...
     }
@@ -22,7 +22,7 @@ export function ProfileView({ movies, onUpdatedUserInfo }) (
     const handleUpdate = (e) => {...
     };
 
-    useEffect (() => {-
+    useEffect (() => {...
     }, [])
 
 
