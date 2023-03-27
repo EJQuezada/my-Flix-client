@@ -22,7 +22,7 @@ export const MovieCard = ({ movie, isFavorite, toggleFavorite }) => {
                 </Button>
                 <Button
                     variant="link"
-                    classname="text-light"
+                    className="text-light"
                     onClick={handleFavoriteClick}
                 >
                 </Button>
