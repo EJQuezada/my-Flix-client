@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
 import { Card, Container, Col, Row, Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "./profile-view.scss";
 
 export const ProfileView = ({ movies, onUpdatedUserInfo }) => {
-    const [user, setUser] = useState(false); 
-
-    const favoriteMovieList = movies.filter((movie) => storedUser(...
-    ));
-
-    const getUser = () => {...
-    }
+    
+    const [updatedUser, setUpdatedUser] = useState(false); 
+    const favoriteMovieList = movies.filter((movie) => storedUser.FavoriteMovies.includes(movie.id));
+    console.log ("movies profile view", favoriteMovies);
+    const storedUser = JSON.parse(localStorage.getItem("user"))
+    
+    //handle for updating user info
     const handleUpdate = (e) => {
         e.preventDefault();
         const data={};
             if (username !== storedUser.Username) data.Username = username;
             if (password) data.Password = password;
             if (email !== storedUser.Email) data.Email = email;
-            if (birthday !-- storedUser.Birthday) data.Birthday = birthday;
+            if (birthday !== storedUser.Birthday) data.Birthday = birthday;
         
         console.log(data);
 
@@ -65,9 +64,11 @@ export const ProfileView = ({ movies, onUpdatedUserInfo }) => {
         })
     };
 
-    useEffect (() => {...
-    }, [])
-
+    useEffect (() => {
+        if (birthdayInputRef.current) {
+            birthdayInputRef.current.value = formatDate(birthday);
+        }
+    }, [updatedUser]);
 
     return(
         <Container>
@@ -108,7 +109,7 @@ export const ProfileView = ({ movies, onUpdatedUserInfo }) => {
                                     </Form.Group>
 
                                     <Form.Group controlId="updatePassword">
-                                        <Form.Label style={{ marginTop: 15 }}>Password: <span className:"required" style={{color: "red"}}> </Form.Label>
+                                        <Form.Label style={{ marginTop: 15 }}>Password: <span className="required" style={{color: "red"}}>*</span></Form.Label>
                                         <Form.Control
                                             type="password"
                                             value={password}
