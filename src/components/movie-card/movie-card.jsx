@@ -5,7 +5,12 @@ import { Button, Card} from "react-bootstrap";
 
 //import "./movie-view/movie-view.jsx";
 
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, isFavorite, toggleFavorite }) => {
+    const handleFavoriteClick = (event) => {
+        event.preventDefault();
+        toggleFavorite(movie);
+    };
+    
     return (
         <Card className="h-100">
             <Card.Img variant="top" src={movie.image} />
@@ -28,6 +33,21 @@ export const MovieCard = ({ movie }) => {
 
 MovieCard.propTypes = {
     movie: PropTypes.shape({
-        title: PropTypes.string
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        genre: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+        }).isRequired,
+        director: PropTypes.shape({
+            name: PropTypes.string.isRequired, 
+            bio: PropTypes.string.isRequired,
+            birthYear: PropTypes.string,
+            deathYear: PropTypes.string,
+        }).isRequired,
     }).isRequired, 
+    isFavorite: PropTypes.bool.isRequired,
+    toggleFavorite: PropTypes.func.isRequired,
 };
+
+export default MovieCard;
