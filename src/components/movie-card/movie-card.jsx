@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card} from "react-bootstrap";
-import {Link} from react-router-dom;
+//import {Link} from react-router-dom;
 
-import "./movie-view/movie-view.scss";
+//import "./movie-view/movie-view.jsx";
 
 export const MovieCard = ({ movie }) => {
     return (
