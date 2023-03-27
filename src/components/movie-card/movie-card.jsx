@@ -15,6 +15,12 @@ export const MovieCard = ({ movie }) => {
                 <Button variant="link">
                     Open
                 </Button>
+                <Button
+                    variant="link"
+                    classname="text-light"
+                    onClick={handleFavoriteClick}
+                >
+                </Button>
             </Card.Body>
         </Card>
     );
