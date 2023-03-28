@@ -20,9 +20,12 @@ export const MovieCard = ({ movie, isFavorite, toggleFavorite }) => {
             <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>{movie.description}</Card.Text>
-                <Button variant="link">
+                <Link to ={`/movies/${encodeURIComponent(movie.id)}`}>
+                    <Button variant="link">
                     Open
-                </Button>
+                    </Button>   
+                </Link>
+
                 <Button
                     variant="link"
                     className="text-light"
