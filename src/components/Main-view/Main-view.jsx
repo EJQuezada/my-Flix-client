@@ -65,6 +65,18 @@ export const MainView = () => {
     //    }
     ]);
     //const [selectedMovie, setSelectedMovie] = useState(storedUser? storedUser : null);
+    const toggleFavorite = (movies) => {
+        const index = favoriteMovies.indexOf(movies);
+        if (index > -1) {
+            deleteFavoriteMovie(movies);
+            setFavoriteMovies(
+                favoriteMovies.filter((favoriteMovie) => favoriteMovie.id !== movie.id)
+            );
+        } else {
+            addFavoriteMovie(movies);
+            setFavoriteMovies([...favoriteMovies, movies]);
+        }
+    };
 
     useEffect(() => {
         if (!token) return;
