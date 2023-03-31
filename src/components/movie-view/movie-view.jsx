@@ -86,26 +86,6 @@ export const MovieView = ({ movies }) => {
                     : <Button variant="success" className="ms-2" onClick={addFavorite}>Add to favorites</Button>
                 }
             </div>
-            <div>
-                <span>Title: </span>
-                <span> {movie.title}</span>
-            </div>
-            <div>
-                <span>Genre: </span>
-                <span> {movie.genre}</span>
-            </div>
-            <div>
-                <span>Release: </span>
-                <span>{movie.release}</span>
-            </div>
-            <Link to={'/'}>
-                <button 
-                    className="back-button"
-                    style={{ cursor: "pointer"}}
-                >
-                    Back
-                </button>
-            </Link>
         </Col>
         </>
     );
