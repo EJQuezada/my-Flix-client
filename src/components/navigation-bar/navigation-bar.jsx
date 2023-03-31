@@ -2,6 +2,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
+    const [query, setQuery] = useState("");
     return (
         <Navbar bg="primary" variant="dark" expand="lg" fixed="top">
             <Container>
