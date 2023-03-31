@@ -1,10 +1,17 @@
 $primary: SeaGreen;
 $body-bg: Honeydew;
 
-//@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 
 $color: steelblue; 
 
 .my-flix {
     color: $color;
+}
+
+.navbar>.container {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
 }
