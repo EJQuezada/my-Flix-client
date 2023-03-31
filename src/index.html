@@ -4,7 +4,37 @@
         <title>Edgar's myFlix</title>
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+                    <div class="container">
+                        <a class="navbar-brand" href="/">myFlix App</a>
+                        <button aria-controls="basic-navbar-nav" type="button" aria-label="Toggle navigation" class="navbar-toggler collapsed">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse" id="basic-navbar-nav">
+                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="/signup">Signup</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="justify-content-md-center row">
+                    <div class="col-md-5">
+                        <form class>
+                            <div>
+                                <label class="form-label" for="formUsername">Username:</label>
+                                <input required minlength="3" type="text" id="formUsername" class="form-control" value>
+                            </div>
+                            <div>
+                                <label class="form-label" for="formPassword">Password:</label>
+                                <input required type="password" id="formPassword" class="form-control" value>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script type="module" src="index.jsx"></script>
     </body>
 </html>
