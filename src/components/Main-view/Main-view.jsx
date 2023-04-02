@@ -3,6 +3,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -66,18 +67,18 @@ export const MainView = () => {
     //    }
     ]);
     //const [selectedMovie, setSelectedMovie] = useState(storedUser? storedUser : null);
-    const toggleFavorite = (movies) => {
-        const index = favoriteMovies.indexOf(movies);
-        if (index > -1) {
-            deleteFavoriteMovie(movies);
-            setFavoriteMovies(
-                favoriteMovies.filter((favoriteMovie) => favoriteMovie.id !== movie.id)
-            );
-        } else {
-            addFavoriteMovie(movies);
-            setFavoriteMovies([...favoriteMovies, movies]);
-        }
-    };
+    //const toggleFavorite = (movies) => {
+    //    const index = favoriteMovies.indexOf(movies);
+    //    if (index > -1) {
+    //        deleteFavoriteMovie(movies);
+    //        setFavoriteMovies(
+    //            favoriteMovies.filter((favoriteMovie) => favoriteMovie.id !== movie.id)
+    //        );
+    //    } else {
+    //        addFavoriteMovie(movies);
+    //        setFavoriteMovies([...favoriteMovies, movies]);
+    //    }
+    //};
     
     useEffect(() => {
         if (!token) return;
@@ -101,6 +102,14 @@ export const MainView = () => {
 
     return (
         <BrowserRouter>
+            <NavigationBar
+                user={user}
+                onLoggedOut={() => {
+                    setUser(null);
+                    setToken(null);
+                    localStorage.clear();
+                }}
+            />
             <Row className="justify-content-md-center">
                 <Routes>
                     <Route
@@ -125,7 +134,12 @@ export const MainView = () => {
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={5}>
-                                        <LoginView onLoggedIn={(user) => setUser(user)} />
+                                        <LoginView 
+                                            onLoggedIn={(user, token) => {
+                                                setUser(user);
+                                                setToken(token);
+                                            }} 
+                                        />
                                     </Col>
                                 )}
                             </>
@@ -158,11 +172,31 @@ export const MainView = () => {
                                 ) : (
                                     <>
                                     {movies.map((movie) => (
-                                        <Col className="mb-4" key={movie.id} md={3}>
-                                            <MovieCard movie={movie} toggleFavorite={toggleFavorite} />
+                                        <Col 
+                                            className="mb-4" 
+                                            key={movie.id} 
+                                            md={3}
+                                        >
+                                            <MovieCard movie={movie} />
                                         </Col>
                                     ))}
                                     </>
+                                )}
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/profile"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to="/login" replace/>
+                                ) : (
+                                    <ProfileView
+                                        user={user}
+                                        movies={movies}
+                                        token={token}
+                                    />
                                 )}
                             </>
                         }
