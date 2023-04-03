@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"; 
-import { Button, Row, Col. Container, Form, Card } from "react-bootstrap";
+import { Button, Row, Col, Container, Form, Card } from "react-bootstrap";
 
 export const UpdateUser = ({ user }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
