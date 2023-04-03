@@ -66,19 +66,7 @@ export const MainView = () => {
     //        release: "2005",
     //    }
     ]);
-    //const [selectedMovie, setSelectedMovie] = useState(storedUser? storedUser : null);
-    //const toggleFavorite = (movies) => {
-    //    const index = favoriteMovies.indexOf(movies);
-    //    if (index > -1) {
-    //        deleteFavoriteMovie(movies);
-    //        setFavoriteMovies(
-    //            favoriteMovies.filter((favoriteMovie) => favoriteMovie.id !== movie.id)
-    //        );
-    //    } else {
-    //        addFavoriteMovie(movies);
-    //        setFavoriteMovies([...favoriteMovies, movies]);
-    //    }
-    //};
+    
     
     useEffect(() => {
         if (!token) return;
@@ -171,15 +159,15 @@ export const MainView = () => {
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <>
-                                    {movies.map((movie) => (
-                                        <Col 
-                                            className="mb-4" 
-                                            key={movie.id} 
-                                            md={3}
-                                        >
-                                            <MovieCard movie={movie} />
-                                        </Col>
-                                    ))}
+                                        {movies.map((movie) => (
+                                            <Col 
+                                                className="mb-4" 
+                                                key={movie.id} 
+                                                md={3}
+                                            >
+                                                <MovieCard movie={movie} />
+                                            </Col>
+                                        ))}
                                     </>
                                 )}
                             </>
