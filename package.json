@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/EJQuezada/my-Flix-client#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.4",
     "bootstrap": "^5.2.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
