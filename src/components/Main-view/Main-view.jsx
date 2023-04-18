@@ -194,24 +194,26 @@ export const MainView = () => {
                         path="/"
                         element={
                             <>
-                                {!user ? (
-                                    <Navigate to="/login" replace />
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
-                                ) : (
-                                    <>
-                                        {movies.map((movie) => (
-                                            <Col 
-                                                className="mb-4" 
-                                                key={movie.id} 
-                                                md={3}
-                                            >
-                                                <MovieCard movie={movie} />
-                                            </Col>
-                                        ))}
-                                    </>
-                                )}
+                                {!user ? 
+                                    <Navigate to="/login" replace /> : <MoviesList />
+                                }
                             </>
+                                // : movies.length === 0 ? (
+                                //</Routes>    <Col>The list is empty!</Col>
+                                //) : (
+                                //    <>
+                                //        {movies.map((movie) => (
+                                //            <Col 
+                                //                className="mb-4" 
+                                //                key={movie.id} 
+                                //                md={3}
+                                //</>            >
+                                //                <MovieCard movie={movie} />
+                                //            </Col>
+                                //        ))}
+                                //</>    </>
+                                //)}
+                            //</>
                         }
                     />
                     <Route
