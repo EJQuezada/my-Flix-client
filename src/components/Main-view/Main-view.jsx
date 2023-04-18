@@ -9,6 +9,24 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { configureStore } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+
+const moviesSlice = createSlice({
+    name: "movies",
+    initialState: {
+        list: [],
+        filter: ""
+    },
+    reducers: {
+        setMovies: (state, action) => {
+            state.list = action.payload;
+        },
+        setFilter: (state, action) => {
+            state.filter = action.payload;
+        }
+    }
+});
+
 import moviesReducer from "./reducers/movies";
 
 export const MainView = () => {
