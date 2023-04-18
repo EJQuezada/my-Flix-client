@@ -14,10 +14,10 @@ import moviesReducer from "./reducers/movies";
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    //const movies = useSelector((state) => state.movies);
+    const movies = useSelector((state) => state.movies.value);
     const [user, setUser] = useState(storedUser? storedUser : null);
     const [token, setToken] = useState(storedToken? storedToken: null);
-    const [movies, setMovies] = useState([
+    //const [movies, setMovies] = useState([
     //    {
     //        id: 1, 
     //        title: "12 Angry Men",
@@ -68,7 +68,7 @@ export const MainView = () => {
     //        actors: ["Steve Carell", "Catherine Keener", "Paul Rudd", "Romany Malco", "Seth Rogen", "Elizabeth Banks", "Leslie Mann", "Jane Lynch", "Gerry Bednob", "Shelley Malil", "Kat Dennings", "Jordan Masterson", "Chelsea Smith", "Jonah Hill", "Erica Vittina Phillips", "Amy Kaling", "Mo Collins"],
     //        release: "2005",
     //    }
-    ]);
+    //]);
 
     const dispatch = useDispatch();
         
