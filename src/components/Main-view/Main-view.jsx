@@ -32,7 +32,7 @@ import moviesReducer from "./reducers/movies";
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const movies = useSelector((state) => state.movies.value);
+    const movies = useSelector((state) => state.movies.list.value);
     //const [user, setUser] = useState(storedUser? storedUser : null);
     const user = useSelector ((state) => state.user.value);
     const [token, setToken] = useState(storedToken? storedToken: null);

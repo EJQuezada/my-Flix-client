@@ -9,7 +9,8 @@ export const MovieView = ({ movies }) => {
     const { movieId } = useParams();
     console.log(movieId, movies);
     //const movie = movies.find((m) => m.id === movieId);
-    const movie = useSelector((state) => state.movies)
+    //const movie = useSelector((state) => state.movies)
+    const movies = useSelector((state) => state.movies.list.value);
     const user = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
     const [favoriteMovies, setFavoriteMovies] = useState(
