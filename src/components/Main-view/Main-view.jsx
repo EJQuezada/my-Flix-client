@@ -181,12 +181,14 @@ export const MainView = () => {
                                     <Navigate to="/login" replace />
                                 ) : movies.length === 0 ? (
                                     <Col>The list is empty!</Col>
-                                ) //: (
+                                ) 
+                                //: (
                                     //<Col md={8}>
                                     //    <MovieView movies={movies} />
                                     //</Col>
                                 //)
                                 }
+                            
                             </>
                         }
                     />
