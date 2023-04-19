@@ -8,13 +8,35 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { configureStore } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+
+//const moviesSlice = createSlice({
+//    name: "movies",
+//    initialState: {
+//        list: [],
+//        filter: ""
+//    },
+//    reducers: {
+//        setMovies: (state, action) => {
+//            state.list = action.payload;
+//        },
+//        setFilter: (state, action) => {
+//            state.filter = action.payload;
+//        }
+//    }
+//});
+
+import moviesReducer from "./reducers/movies";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = useState(storedUser? storedUser : null);
+    const movies = useSelector((state) => state.movies.list.value);
+    //const [user, setUser] = useState(storedUser? storedUser : null);
+    const user = useSelector ((state) => state.user.value);
     const [token, setToken] = useState(storedToken? storedToken: null);
-    const [movies, setMovies] = useState([
+    //const [movies, setMovies] = useState([
     //    {
     //        id: 1, 
     //        title: "12 Angry Men",
@@ -65,9 +87,27 @@ export const MainView = () => {
     //        actors: ["Steve Carell", "Catherine Keener", "Paul Rudd", "Romany Malco", "Seth Rogen", "Elizabeth Banks", "Leslie Mann", "Jane Lynch", "Gerry Bednob", "Shelley Malil", "Kat Dennings", "Jordan Masterson", "Chelsea Smith", "Jonah Hill", "Erica Vittina Phillips", "Amy Kaling", "Mo Collins"],
     //        release: "2005",
     //    }
-    ]);
-    
-    
+    //]);
+
+    const dispatch = useDispatch();
+    const moviesSlice = createSlice({
+        name: "movies",
+        initialState: {
+            list: [],
+            filter: ""
+        },
+        reducers: {
+            setMovies: (state, action) => {
+                state.list = action.payload;
+            },
+            setFilter: (state, action) => {
+                state.filter = action.payload;
+            }
+        }
+    }); 
+    export const { setMovies, setFilter } = moviesSlice.actions;
+    export default moviesSlice.reducer;
+        
     useEffect(() => {
         if (!token) return;
 
@@ -84,7 +124,7 @@ export const MainView = () => {
                     };
                 });
 
-            setMovies(moviesFromApi);
+            dispatch(setMovies(moviesFromApi));
         });
     }, [token]);
 
@@ -141,11 +181,14 @@ export const MainView = () => {
                                     <Navigate to="/login" replace />
                                 ) : movies.length === 0 ? (
                                     <Col>The list is empty!</Col>
-                                ) : (
-                                    <Col md={8}>
-                                        <MovieView movies={movies} />
-                                    </Col>
-                                )}
+                                ) 
+                                //: (
+                                    //<Col md={8}>
+                                    //    <MovieView movies={movies} />
+                                    //</Col>
+                                //)
+                                }
+                            
                             </>
                         }
                     />
@@ -153,24 +196,26 @@ export const MainView = () => {
                         path="/"
                         element={
                             <>
-                                {!user ? (
-                                    <Navigate to="/login" replace />
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
-                                ) : (
-                                    <>
-                                        {movies.map((movie) => (
-                                            <Col 
-                                                className="mb-4" 
-                                                key={movie.id} 
-                                                md={3}
-                                            >
-                                                <MovieCard movie={movie} />
-                                            </Col>
-                                        ))}
-                                    </>
-                                )}
+                                {!user ? 
+                                    <Navigate to="/login" replace /> : <MoviesList />
+                                }
                             </>
+                                // : movies.length === 0 ? (
+                                //</Routes>    <Col>The list is empty!</Col>
+                                //) : (
+                                //    <>
+                                //        {movies.map((movie) => (
+                                //            <Col 
+                                //                className="mb-4" 
+                                //                key={movie.id} 
+                                //                md={3}
+                                //</>            >
+                                //                <MovieCard movie={movie} />
+                                //            </Col>
+                                //        ))}
+                                //</>    </>
+                                //)}
+                            //</>
                         }
                     />
                     <Route
