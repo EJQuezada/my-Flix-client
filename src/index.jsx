@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 // Import statement to indicate you need need to bundle `./index.scss`
 import "./index.scss"
 import { store } from "./redux/store";
-import { Provider } from "react-redux"; n
+import { Provider } from "react-redux";
 
 //Main component (will eventually use all the others)
 const MyFlixApplication = () => {
