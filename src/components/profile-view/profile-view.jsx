@@ -29,7 +29,7 @@ export const ProfileView = ({ user, movies }) => {
             .then((response) => {
                 console.log("getUser response", response);
                 setUsername(response.Username);
-                setEmail(reponse.Email);
+                setEmail(response.Email);
                 setPassword(response.Password);
                 setBirthday(response.Birthday);
                 setFavoriteMovies(response.FavoriteMovies);

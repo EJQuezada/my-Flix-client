@@ -8,7 +8,7 @@ import "./movie-view.scss";
 export const MovieView = ({ movies }) => {
     const { movieId } = useParams();
     console.log(movieId, movies);
-    const movie = movies.find((m) => m.id === movieId);
+    const movie = movies.find((m) => m._id === movieId);
     const user = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
     const [favoriteMovies, setFavoriteMovies] = useState(
@@ -90,16 +90,16 @@ export const MovieView = ({ movies }) => {
     return (
         <>
             <Col md={12}>
-                <div className="text-light">
+                <div className="text-dark">
                     <img 
                         className="w-100" 
-                        src="https://m.media-amazon.com/images/M/MV5BMjAyNTU5OTcxOV5BMl5BanBnXkFtZTcwMDEyNjM2MQ@@._V1_QL75_UY281_CR6,0,190,281_.jpg" 
+                        src={movie.ImagePath} 
                         alt="Movie Cover Image" 
                     />
                     <h2>
-                        {movie.title} ({movie.year})
+                        {movie.Title} ({movie.Release})
                     </h2>
-                    <p>{movie.description}</p>
+                    <p>{movie.Description}</p>
                     <h3>Actors:</h3>
                     <h5>{movie.Actors.join(" - ")}</h5>
                     <h3>Genre:</h3>

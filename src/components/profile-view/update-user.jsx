@@ -7,10 +7,10 @@ export const UpdateUser = ({ user }) => {
     const storedMovies = JSON.parse(localStorage.getItem("movies"));
 
     const [token] = useState(storedToken ? storedToken : null);
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [birthday, setBirthday] = useState(null);
+    const [username, setUsername] = useState(user.Username);
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState(user.Email);
+    const [birthday, setBirthday] = useState(user.Birthday);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -30,7 +30,7 @@ export const UpdateUser = ({ user }) => {
                 method: "PUT",
                 body: JSON.stringify(data),
                 headers: {
-                    Authorizaiton: `Bearer ${token}`, 
+                    Authorization: `Bearer ${token}`, 
                     "Content-Type": "application/json",
                 },
             }
