@@ -7,13 +7,9 @@ import "./movie-view.scss";
 
 export const MovieView = ({ movies }) => {
     const { movieId } = useParams();
-    console.log(movieId, movies);
     const movie = movies.find((m) => m._id === movieId);
     const user = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
-    const [favoriteMovies, setFavoriteMovies] = useState(
-        user.favoriteMovies ? user.FavoriteMovies: []
-    );
     const [isFavorite, setIsFavorite] = useState(false);
 
     const addFavorite = () => {
@@ -35,7 +31,6 @@ export const MovieView = ({ movies }) => {
             .then(user => {
                 if (user) {
                     alert("Successfully added to favorites");
-                    setFavoriteMovies(user.FavoriteMovies);
                     setIsFavorite(true);
                     localStorage.setItem("user", JSON.stringify(user));
                 }
@@ -64,7 +59,6 @@ export const MovieView = ({ movies }) => {
         .then(user => {
             if (user) {
                 alert("Successfully deleted from favorite movies");
-                setFavoriteMovies(user.FavoriteMovies);
                 setIsFavorite(false);
                 localStorage.setItem("user", JSON.stringify(user));
             }
@@ -74,18 +68,11 @@ export const MovieView = ({ movies }) => {
         });
     };
 
-    const toggleMovie = () => {
-        const favoriteMoviesValues = Object.values(favoriteMovies);
-        favoriteMoviesValues.some((favM) => favM === movie._id)
-            ? setIsFavorite(true)
-            : setFavoriteMovies(false);
-    };
 
     useEffect(() => {
-        toggleMovie();
+        setIsFavorite(user.FavoriteMovies.includes(movie._id))
     }, []);
 
-    console.log(movie);
 
     return (
         <>

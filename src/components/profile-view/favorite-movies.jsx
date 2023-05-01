@@ -1,74 +1,24 @@
-import { useState, useEffect } from "react";
-import { MovieCard } from "../movie-card/movie-card";
-import { ProfileView } from "../profile-view/profile-view";
-import { Button,Col, Card, Link } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col } from "react-bootstrap";
+import MovieCard from "../movie-card/movie-card";
 
-export const FavoriteMovies = ({ user, movies }) => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
-    const storedMovies = JSON.parse(localStorage.getItem("movies"));
 
-    const [token] = useState(storedToken ? storedToken : null);
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [birthday, setBirthday] = useState(null);
-    const [favoriteMovies, setFavoriteMovies] = useState([]);
-    const [allMovies] = useState(storedMovies ? storedMovies : movies);
-    const [filteredMovies, setFilteredMovies] = useState([]);
+export const FavoriteMovies = ({ movies }) => {
+    const [favMovies, setFavMovies] = useState([]);
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    const getUser = (token) => {
-        fetch(`https://edgars-movie-api.onrender.com/users/${user.Username}`, {
-            method: "GET",
-            headers: { Authorization: `Bearer ${token}` },
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                console.log("getUser response", response);
-                setUsername(response.Username);
-                setEmail(response.Email);
-                setPassword(response.Password);
-                setBirthday(response.Birthday);
-                setFavoriteMovies(response.FavoriteMovies);
-            });
-        console.log("userFavoriteMovie", favoriteMovies);
-
-        const favoriteMovies = movies.filter((movie) => 
-            favoriteMovies.includes(movie._id)
-        );
-
-        console.log("favoriteMovies", favoriteMovies);
-
-        useEffect(() => {
-            const newList = allMovies.filter((movie) => {
-                const hasMovieId = favoriteMovies.some((m) => movie.id === m);
-                if (hasMovieId) {
-                    return movie;
-                }
-            });
-            setFavoriteMovies(newList);
-            getUser(token);
-        }, []);
-
-        return (
-            <>
-                <h4>Favorite movies</h4>
-                {favoriteMovies.length === 0 ? (
-                    <span>No movies selected</span>
-                ) : (
-                    favoriteMovies.map((movie) => (
-                        <Col
-                            className="mb-4"
-                            key={movie._id}
-                            xs={12}
-                            md={6}
-                            lg={3}
-                        >
-                            <MovieCard movie={movie} />
-                        </Col>
-                    ))
-                )}
-            </>
-        );
-    };
+    useEffect(() => {
+        console.log("From Fav Movies", user, movies)
+        setFavMovies(movies.filter(m => user.FavoriteMovies.includes(m._id)));
+    }, [])
+    return (
+        <>
+            <h1>Favorite Movies</h1>
+            {favMovies.map((movie) => (
+                <Col className="mb-4" key={movie._id} md={3}>
+                    <MovieCard movie={movie} />
+                </Col>
+            ))}
+        </>
+    )
 };
