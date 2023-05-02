@@ -1,17 +1,17 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Button, Form, FormControl} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, searchTerm, setSearchTerm}) => {
     //const [query, setQuery] = useState("");
     return (
-        <Navbar bg="primary" variant="dark" expand="lg" fixed="top">
+        <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     MyFlix Movies App
                 </Navbar.Brand>
-                <Navbar.Toggle aria-contols="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                <Navbar.Toggle aria-contols="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="ms-auto">
                         {!user && (
                             <>
                                 <Form inline className="d-flex">
