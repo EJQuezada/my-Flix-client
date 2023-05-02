@@ -14,6 +14,29 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                     <Nav className="me-auto">
                         {!user && (
                             <>
+                                <Form inline className="d-flex">
+                                    <FormControl
+                                        type="text"
+                                        placeholder="Search"
+                                        className="mr-sm-2"
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
+                                    {searchTerm && (
+                                        <Button
+                                            variant="outline-light"
+                                            onClick={() => setSearchTerm('')}
+                                        >
+                                            X
+                                        </Button>                                        
+                                    )}
+                                </Form>
+                            </>
+                        )}
+                    </Nav>
+                    <Nav className="ms-auto">
+                        {!user && (
+                            <>
                                 <Nav.Link as={Link} to="/login">
                                     Login
                                 </Nav.Link>
@@ -21,7 +44,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                                     Signup
                                 </Nav.Link>
                             </>
-                        )}      
+                        )}
                         {user && (
                             <>
                                 <Nav.Link as={Link} to="/">
@@ -35,11 +58,13 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                                 </Nav.Link>
                             </>
                         )}
-                    </Nav>
+                    </Nav>    
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     );
 };
+
+
 
 
