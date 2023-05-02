@@ -99,7 +99,7 @@ export const MovieView = ({ movies }) => {
                     </h5>
                     <p>{movie.Director.Bio}</p>
                     <Link to={"/"}>
-                        <Button variant="primary">Back</Button>
+                        <Button variant="dark">Back</Button>
                     </Link>
                     {isFavorite ? (
                         <Button 
