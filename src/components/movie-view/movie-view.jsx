@@ -88,7 +88,7 @@ export const MovieView = ({ movies }) => {
                     </h2>
                     <p>{movie.Description}</p>
                     <h3>Actors:</h3>
-                    <h5>{movie.Actors.join(" - ")}</h5>
+                    <p>{movie.Actors.join(" - ")}</p>
                     <h3>Genre:</h3>
                     <h5>{movie.Genre.Name}</h5>
                     <p>{movie.Genre.Description}</p>

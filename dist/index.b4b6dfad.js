@@ -46282,7 +46282,7 @@ const MovieView = ({ movies  })=>{
                         lineNumber: 90,
                         columnNumber: 21
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: movie.Actors.join(" - ")
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
