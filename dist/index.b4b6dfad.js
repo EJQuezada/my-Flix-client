@@ -47205,7 +47205,7 @@ const NavigationBar = ({ user , onLoggedOut , searchTerm , setSearchTerm  })=>{
                     id: "responsive-navbar-nav",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
-                            className: "me-auto",
+                            className: "ms-auto",
                             children: !user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
                                     inline: true,

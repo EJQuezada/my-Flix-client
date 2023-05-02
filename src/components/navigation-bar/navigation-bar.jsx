@@ -11,7 +11,7 @@ export const NavigationBar = ({ user, onLoggedOut, searchTerm, setSearchTerm}) =
                 </Navbar.Brand>
                 <Navbar.Toggle aria-contols="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="ms-auto">
                         {!user && (
                             <>
                                 <Form inline className="d-flex">
