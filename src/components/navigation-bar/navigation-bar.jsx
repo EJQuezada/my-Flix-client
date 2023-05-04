@@ -9,30 +9,9 @@ export const NavigationBar = ({ user, onLoggedOut, searchTerm, setSearchTerm}) =
                 <Navbar.Brand as={Link} to="/">
                     MyFlix Movies App
                 </Navbar.Brand>
-                <Navbar.Toggle aria-contols="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
+                <Navbar.Toggle aria-contols="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        {!user && (
-                            <>
-                                <Form inline className="d-flex">
-                                    <FormControl
-                                        type="text"
-                                        placeholder="Search"
-                                        className="mr-sm-2"
-                                        value={searchTerm}
-                                        onChange={(e) => setSearchTerm(e.target.value)}
-                                    />
-                                    {searchTerm && (
-                                        <Button
-                                            variant="outline-light"
-                                            onClick={() => setSearchTerm('')}
-                                        > X </Button>
-                                    )}
-                                </Form>
-                            </>
-                        )}
-                    </Nav>
-                    <Nav className="ms-auto">
                         {!user && (
                             <>
                                 <Nav.Link as={Link} to="/login">
@@ -56,11 +35,13 @@ export const NavigationBar = ({ user, onLoggedOut, searchTerm, setSearchTerm}) =
                                 </Nav.Link>
                             </>
                         )}
-                    </Nav>
+                    </Nav>    
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     );
 };
+
+
 
 
